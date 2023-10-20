@@ -59,6 +59,8 @@ a {
   width: calc(100% - 2rem);
   margin-left: 1rem;
   margin-right: 1rem;
+  align-content: center;
+  justify-items: center;
 }
 
 .header {
@@ -138,7 +140,7 @@ a {
   height: calc(100vh);
   grid-template-rows: repeat(2, max-content);
   row-gap: 24px;
-  margin-top: 40px;
+
 }
 
 .home_img {
@@ -209,8 +211,6 @@ a {
   width: 200px;
 }
 .home_data {
-  position: block;
-  justify-content: center center;
   top: 380px;
 }
 .home_text {
@@ -244,11 +244,11 @@ br {
 }
 
 .container {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding-top: 70px;
+  height: calc(100vh);
+  grid-template-rows: repeat(2, max-content);
+  row-gap: 24px;
+  margin-top: 40px;
+  
 
 }
 .carousel_about {
@@ -258,11 +258,13 @@ br {
   position: relative;
   margin-bottom: 50px;
   
+  
 }
 
 .carousel-inner {
   display: flex;
   transition: all 1s;
+  
 }
 
 .carousel-inner img {
@@ -373,6 +375,7 @@ br {
   width: fit-content;
   font-size: 1.5em;
   margin-bottom: 20px;
+  
 }
 .about_description {
   font-family: var(--secundary-font);

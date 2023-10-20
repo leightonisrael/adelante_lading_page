@@ -38,6 +38,13 @@ function move(e) {
 }
 
 // Animation GSAP
+gsap.from('.carousel-btn carousel-btn-next', {
+  opacity: 0,
+  duration: 1,
+  delay: 1,
+  y: 10,
+});
+
 gsap.from('.nav_logo, .nav_toggle', {
   opacity: 0,
   duration: 1,
@@ -52,11 +59,24 @@ gsap.from('.nav_item', {
   stagger: 0.2,
 });
 
+
+gsap.from('#scrollToTopBtn', {
+  opacity: 0,
+  duration: 1,
+  delay: 1,
+  y: 30,
+  stagger: 0.2,
+});
+
+
 gsap.from('.home_title', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_description_2', {opacity: 0,duration: 1,delay: 1,y: 30,});
 gsap.from('.home_text', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_img', { opacity: 0, duration: 1, delay: 1, y: 30 });
+gsap.from('.about', { opacity: 0, duration: 1, delay: 1, y: 30 });
+gsap.from('.about_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
+gsap.from('.about_items', { opacity: 0, duration: 1, delay: 1, y: 30 });
 
 
 // Sooth moviment at the site when click
