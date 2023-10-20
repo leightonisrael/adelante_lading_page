@@ -152,7 +152,8 @@ a {
   justify-self: center;
   width: 302px;
   height: 233px;
-  margin-top: 50px;
+  margin-top: 35px;
+  margin-bottom: 15px;
 }
 
 .home_img img {
@@ -230,30 +231,7 @@ a {
   background-color: var(--first-color-white);
 }
 
-/* DARK MODE */
-/*
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #1B2E2A;
-  }
-  .header {
-    background-color: var(--gray-color);
-  }
-  .home {
-    background-color: #1B2E2A;
-  }
-  .home_title {
-    color: var(--gray-color-white);
-  }
-  .home_text,
-  .home_description,
-  .home_description_2 {
-    color: var(--gray-color-white);
-  }
-  .home_learn {
-    background-color: var(--default-color);
-  }
-}
+
 
 /* MEDIAS QUERIES */
 @media screen and (max-width: 887px) {

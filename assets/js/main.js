@@ -1,32 +1,22 @@
-// Favicon Dark/Light Mode
-const faviconTag = document.getElementById('favicon_tag');
-const isDark = window.matchMedia('(prefers-color-scheme: dark)');
-const changeFavicon = () => {
-  if (isDark.matches) faviconTag.href = '../../adl.svg';
-  else faviconTag.href = '../../adl.svg';
-};
-changeFavicon();
-setInterval(changeFavicon, 1000);
-
 // Menu Toggle
 const navMenu = document.getElementById('nav-menu'),
       toggleMenu = document.getElementById('nav-toggle'),
       closeMenu = document.getElementById('nav-close');
 
-// Função para fechar o menu
+// Function for close the menu
 function closeNavMenu() {
     navMenu.classList.remove('show');
 }
 
-// Abre o menu quando o ícone de menu é clicado
+// Open the select item of the menu
 toggleMenu.addEventListener('click', () => {
     navMenu.classList.toggle('show');
 });
 
-// Fecha o menu quando o ícone de fechar é clicado
+// Close when click on the X icon 
 closeMenu.addEventListener('click', closeNavMenu);
 
-// Fecha o menu quando qualquer link dentro do menu é clicado
+// Close when click at any item of the menu
 const navLinks = document.querySelectorAll('.nav_link');
 
 navLinks.forEach(link => {
@@ -64,25 +54,20 @@ gsap.from('.nav_item', {
 
 gsap.from('.home_title', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.home_description_2', {
-  opacity: 0,
-  duration: 1,
-  delay: 1,
-  y: 30,
-});
+gsap.from('.home_description_2', {opacity: 0,duration: 1,delay: 1,y: 30,});
 gsap.from('.home_text', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.home_buy', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.home_learn', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_img', { opacity: 0, duration: 1, delay: 1, y: 30 });
 
 
+// Sooth moviment at the site when click
+
 document.querySelectorAll('.nav_link').forEach(link => {
   link.addEventListener('click', function(e) {
-      e.preventDefault();  // Previne o comportamento padrão de clique
+      e.preventDefault();  // Prevents default click behavior
 
       const href = this.getAttribute('href');
 
-      // Garante que o href começa com "#", o que significa que é uma âncora interna
+      // Ensures that the href starts with "#", which means it's an inner anchor
       if (href.startsWith("#")) {
           const targetElement = document.querySelector(href);
           if (targetElement) {
@@ -95,6 +80,9 @@ document.querySelectorAll('.nav_link').forEach(link => {
       }
   });
 });
+
+
+//Buttom to scroll up
 
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
