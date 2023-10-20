@@ -100,3 +100,96 @@ scrollToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+
+const carouselInner = document.querySelector('.carousel-inner');
+const prevBtn = document.querySelector('.carousel-btn-prev');
+const nextBtn = document.querySelector('.carousel-btn-next');
+let currentIndex = 0;
+let autoMoveInterval;
+
+function moveCarousel(newIndex) {
+    if (newIndex < 0) newIndex = carouselInner.children.length - 1;
+    if (newIndex >= carouselInner.children.length) newIndex = 0;
+
+    const offset = -newIndex * 300; // 300 is the width of the image
+    carouselInner.style.transform = `translateX(${offset}px)`;
+    currentIndex = newIndex;
+}
+
+function startAutoMove() {
+    autoMoveInterval = setInterval(() => {
+        moveCarousel(currentIndex + 1);
+    }, 3000); // moves every 3 seconds
+}
+
+function stopAutoMove() {
+    clearInterval(autoMoveInterval);
+}
+
+// Starts automatic carousel movement
+startAutoMove();
+
+prevBtn.addEventListener('click', () => {
+    stopAutoMove();
+    moveCarousel(currentIndex - 1);
+});
+
+nextBtn.addEventListener('click', () => {
+    stopAutoMove();
+    moveCarousel(currentIndex + 1);
+});
+
+//If you want to restart automatic movement after a certain time without interaction, you can do it like this:
+let restartTimeout;
+carouselInner.addEventListener('mouseenter', stopAutoMove);
+carouselInner.addEventListener('mouseleave', () => {
+    clearTimeout(restartTimeout);
+    restartTimeout = setTimeout(startAutoMove, 5000); // restarts after 5 seconds of no interaction
+});
+
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const images = document.querySelectorAll('.carousel-inner img');
+const closeBtn = document.querySelector('.close');
+const prevBtn1 = document.getElementById('prevBtn');
+const nextBtn2 = document.getElementById('nextBtn');
+const nav = document.querySelector('.nav');
+let currentImageIndex;
+
+images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        currentImageIndex = index;
+        nav.style.display = "none";  // Hide the nav
+    });
+});
+
+closeBtn.addEventListener('click', closeImageModal);
+
+prevBtn1.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    modalImg.src = images[currentImageIndex].src;
+});
+
+nextBtn2.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    modalImg.src = images[currentImageIndex].src;
+});
+
+// Funcionalidade para fechar a modal ao pressionar a tecla ESC
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+        closeImageModal();
+    }
+});
+
+function closeImageModal() {
+    modal.style.display = "none";
+    nav.style.display = "flex";  // Restore the nav display to flex
+}
+
+
+
+

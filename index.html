@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adelante Engenharia</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <!--============ CSS ============-->
     <link rel="preload" href="./assets/css/style.css" as="style" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -172,9 +175,44 @@
       </section>
 
       <section class="about_us" id="about_us">
-        <h1>
-          Um pouco pouco nós
-        </h1>
+
+        <div class="container grid">
+          <!-- Modal -->
+          <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" alt="">
+                <button id="prevBtn" class="nav-btn">❮</button>
+                <button id="nextBtn" class="nav-btn">❯</button>
+            </div>
+          </div>
+        
+          
+
+          <div class="carousel_about">
+            <button class="carousel-btn carousel-btn-prev">&#10094;</button>
+            <div class="carousel-inner">
+                <img src="assets/img/sem_imagem.jpg" alt="Image 1">
+                <img src="assets/img/sem_imagem.jpg" alt="Image 2">
+                <img src="assets/img/sem_imagem.jpg" alt="Image 3">
+            </div>
+            <button class="carousel-btn carousel-btn-next">&#10095;</button>
+
+           </div>
+        
+          <div class="content-container">
+              <h1 class="about">Sobre nós</h1>
+              <p class="about_description">Somos uma empresa criada a partir de um sonho...</p>
+              <p class="about_description" >Uma empresa totalmente criada por potiguares..</p>
+              <h2 class="about" >Por que escolher a gente?</h2>
+              <ul class="full_items_about">
+                  <li class="about_items">Top 1 na cidade do sol</li>
+                  <li class="about_items">Prêmio da melhor construtora do RN</li>
+                  <li class="about_items">Comprometimento com a obra</li>
+                  <li></li>
+              </ul>
+          </div>
+        </div>
 
       </section>
 
@@ -217,5 +255,6 @@
     <!--============ JS ============-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
     <script src="./assets/js/main.js"></script>
+
   </body>
 </html>
