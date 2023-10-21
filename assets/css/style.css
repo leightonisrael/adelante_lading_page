@@ -253,7 +253,7 @@ br {
 }
 .carousel_about {
   width: 300px;
-  height: 200px;
+  height: 260px;
   overflow: hidden;
   position: relative;
   margin-bottom: 50px;
@@ -535,11 +535,7 @@ br {
   }
   .carousel_about {
     width: 300px;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 0px;
-    
+    height: 360px;    
   }
 
   .about{
