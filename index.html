@@ -252,19 +252,43 @@
       <!--============ CONTACT ============-->
 
       <section class="contact" id="contact">
-        <h1>
-          Contate-nos
-        </h1>
-
-      </section>
+        <section class="contact_sections grid">
+            <header class="header_contact">
+                <h1>Ficou interessado?</h1>
+            </header>
+            <div class="contact_full grid">
+                <div class="contact_description">
+                    <p>
+                        Quer falar com a gente? Você pode escolher deixar sua mensagem ou entrar em contato
+                        conosco pelos telefones ou chat/whatsapp nos botões flutuantes.
+                    </p>
+                </div>
+        
+                <form action="#" method="POST" class="contact_form"> 
+                    <!-- <label for="name">Nome:</label> -->
+                    <input type="text" id="name" placeholder="Nome" name="name">
+        
+                    <!-- <label for="mobile_phone">WhatsApp:</label> -->
+                    <input type="text" id="mobile_phone" placeholder="WhatsApp" name="mobile_phone">
+        
+                    <!-- <label for="email">Email:</label> -->
+                    <input type="email" id="email" placeholder="Email" name="email">
+        
+                    
+                </form>
+            </div>
+            <button type="submit" class="submit grid">Enviar meus dados</button>
+        </section>
+      </section>    
     </main>
 
     <footer>
-      <button id="scrollToTopBtn" class="scroll-to-top" style="background-color: #2f5049; border-radius: 50%; height: 50px; width: 50px;">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-          <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+      <button id="scrollToTopBtn" class="scroll-to-top" style="background-color: #2f5049; border-radius: 50%; height: 50px; width: 50px; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.415);">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" style="border-radius: 50%; "><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/ style="border-radius: 50%;">
         </svg>
       </button>
+      
     </footer>
 
     <!--============ JS ============-->
