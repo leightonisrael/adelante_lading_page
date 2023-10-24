@@ -198,7 +198,7 @@ nextBtn2.addEventListener('click', () => {
     modalImg.src = images[currentImageIndex].src;
 });
 
-// Funcionalidade para fechar a modal ao pressionar a tecla ESC
+// Functionality to close the modal when pressing the ESC key
 window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal.style.display === 'block') {
         closeImageModal();
@@ -210,6 +210,21 @@ function closeImageModal() {
     nav.style.display = "flex";  // Restore the nav display to flex
 }
 
+
+let indicator = document.getElementById('whatsapp-indicator');
+let widget = document.getElementById('whatsapp-widget');
+
+indicator.addEventListener('mouseover', function() {
+    this.style.display = 'none';
+    widget.classList.add('active');
+});
+
+widget.addEventListener('mouseleave', function() {
+    this.classList.remove('active');
+    setTimeout(() => {
+        indicator.style.display = 'flex';
+    }, 300); // Ajuste este valor de acordo com a duração da transição CSS (atualmente 0.3s = 300ms).
+});
 
 
 

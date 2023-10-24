@@ -527,6 +527,97 @@ br {
 }
 
 
+.footer {
+  
+}
+
+.row {
+  
+}
+
+.box {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: var(--default-color);
+}
+
+.maps {
+  text-decoration: none;
+  color: var(--default-color);
+}
+
+.box h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  text-shadow: #1B2E2A;
+  text-transform: uppercase;
+}
+
+.box p{
+  margin-bottom: 10px;
+}
+.social-list{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#whatsapp-indicator {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  z-index: 1000;
+  background-color: #25D366;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+#whatsapp-widget {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) translateX(-100%);
+  width: 180px;
+  height: 50px;
+  z-index: 999;
+  cursor: pointer;
+  background-color: #25D366;
+  border-radius: 0 25px 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  padding: 0 10px;
+  opacity: 0;
+}
+
+#whatsapp-widget.active {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+#whatsapp-widget svg, 
+#whatsapp-indicator svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+#whatsapp-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
   
 
 @media screen and (min-width: 887px) {
@@ -596,6 +687,11 @@ br {
 
   .submit{
     width: 45%;
+  }
+
+  .row{
+    display: flex;
+    justify-content: space-around;
   }
 }
 
