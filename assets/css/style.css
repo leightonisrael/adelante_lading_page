@@ -53,7 +53,7 @@ a {
 
 /* CSS COMPONENTS */
 .grid {
-  max-width: 1024px;
+  max-width: 1140px;
   display: grid;
   grid-template-columns: 100%;
   width: calc(100% - 2rem);
@@ -108,6 +108,7 @@ a {
   position: absolute;
   top: 12px;
   right: 16px;
+  
 }
 
 .nav_item {
@@ -408,6 +409,81 @@ br {
   background-color: var(--first-color);
   height: calc(100vh);
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.head {
+  height: 40%;
+}
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.squares {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os quadrados se ajustem em várias linhas se houver muitos */
+  gap: 10px; /* Espaçamento entre os quadrados */
+  justify-content: center; /* Centraliza os quadrados */
+}
+
+.square {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.square img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.square span {
+  z-index: 2;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#display-image {
+  max-width: 100%;
+  height: auto;
+}
+
+#display-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.hidden-content {
+  display: none;
+}
+
+.shrink {
+  transform: scale(0.5); /* Reduz o tamanho para 80% do original */
+  opacity: 0.6; /* Torna a caixa um pouco transparente */
 }
 
 
@@ -420,24 +496,27 @@ br {
 }
 
 
-/* work with us */
+/* work with us
 
 .work_with_us{
   background-color: var(--first-color);
   height: calc(100vh);
   color: white;
-}
+} */
 
 
 /* contact */
 
 
 .contact{
-  background-color: var(--second-color);
-  height: calc(100vh);
+  background-color: var(--primary-color);
+  height: calc(85vh);
   color: white;
 }
 
+.contact p{
+  color: #C6C7C9;
+}
   /*
       contact
       contact_sections
@@ -449,7 +528,7 @@ br {
       */
 
 .contact_sections {
-  height: calc(100vh);
+  height: calc(85vh);
   gap: 48px;
   padding-top: 48px;
 }
@@ -465,9 +544,9 @@ br {
   flex-direction: column;
 }
 
-.contact_description{
+/* .contact_description{
 
-}
+} */
 
 .contact_form {
   display: flex;
@@ -483,7 +562,6 @@ br {
   font-size: 1em;
   height: 35px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -532,13 +610,13 @@ input{
 }
 
 
-.footer {
+/* .footer {
   
-}
+} */
 
-.row {
-  
-}
+footer {
+  background-color: var(--second-color);
+} 
 
 .box {
   text-align: center;
@@ -594,6 +672,7 @@ input{
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   cursor: pointer;
+  transition: transform 1s, opacity 0.3s;
 }
 
 #whatsapp-widget {
@@ -614,6 +693,7 @@ input{
   transition: transform 0.3s;
   padding: 0 10px;
   opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 #whatsapp-widget.active {
@@ -740,6 +820,10 @@ input{
   .carousel_about {
     width: 300px;
     height: 360px;    
+  }
+
+  .carousel-inner img{
+
   }
 
   .about{

@@ -37,6 +37,8 @@ function move(e) {
   });
 }
 
+gsap.registerPlugin(ScrollTrigger);
+
 // Animation GSAP
 gsap.from('.carousel-btn carousel-btn-next', {
   opacity: 0,
@@ -51,6 +53,7 @@ gsap.from('.nav_logo, .nav_toggle', {
   delay: 1,
   y: 10,
 });
+
 gsap.from('.nav_item', {
   opacity: 0,
   duration: 1,
@@ -67,6 +70,28 @@ gsap.from('#scrollToTopBtn', {
   y: 30,
   stagger: 0.2,
 });
+gsap.from('.about', {
+    opacity: 0,
+    duration: 1,
+    y: 10,
+    scrollTrigger: {
+      trigger: '.about',
+      start: 'top 70%',
+      toggleActions: "play none none none"
+    }
+});
+
+gsap.from('.contact', {
+    opacity: 0,
+    duration: 2,
+    y: 10,
+    scrollTrigger: {
+      trigger: '.contact',
+      start: 'top 70%',
+      toggleActions: "play none none none"
+    }
+});
+  
 
 
 gsap.from('.home_title', { opacity: 0, duration: 1, delay: 1, y: 30 });
@@ -74,21 +99,21 @@ gsap.from('.home_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_description_2', {opacity: 0,duration: 1,delay: 1,y: 30,});
 gsap.from('.home_text', { opacity: 0, duration: 1, delay: 1, y: 30 });
 gsap.from('.home_img', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.about', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.about_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
-gsap.from('.about_items', { opacity: 0, duration: 1, delay: 1, y: 30 });
+// gsap.from('.about', { opacity: 0, duration: 1, delay: 1, y: 30 });
+// gsap.from('.about_description', { opacity: 0, duration: 1, delay: 1, y: 30 });
+// gsap.from('.about_items', { opacity: 0, duration: 1, delay: 1, y: 30 });
+// gsap.from('.contact', { opacity: 0, duration: 0.5, delay: 2,  y: 30 });
 
 
 // Sooth moviment at the site when click
 
 document.querySelectorAll('.nav_link').forEach(link => {
   link.addEventListener('click', function(e) {
-      e.preventDefault();  // Prevents default click behavior
-
       const href = this.getAttribute('href');
 
       // Ensures that the href starts with "#", which means it's an inner anchor
       if (href.startsWith("#")) {
+          e.preventDefault();  // Prevents default click behavior only for inner anchors
           const targetElement = document.querySelector(href);
           if (targetElement) {
               const top = targetElement.offsetTop;
@@ -100,6 +125,7 @@ document.querySelectorAll('.nav_link').forEach(link => {
       }
   });
 });
+
 
 
 //Buttom to scroll up
@@ -214,17 +240,75 @@ function closeImageModal() {
 let indicator = document.getElementById('whatsapp-indicator');
 let widget = document.getElementById('whatsapp-widget');
 
+// Função para verificar se estamos em uma tela pequena (por exemplo, menos de 600px de largura).
+function isSmallScreen() {
+    return window.innerWidth <= 600;
+}
+
 indicator.addEventListener('mouseover', function() {
-    this.style.display = 'none';
-    widget.classList.add('active');
+    if (!isSmallScreen()) {
+        showWidget();
+    }
+});
+
+indicator.addEventListener('click', function() {
+    showWidget();
 });
 
 widget.addEventListener('mouseleave', function() {
-    this.classList.remove('active');
+    hideWidget();
+});
+
+document.addEventListener('click', function(event) {
+    // Se o clique não foi dentro do widget ou do ícone, oculte o widget.
+    if (!widget.contains(event.target) && !indicator.contains(event.target)) {
+        hideWidget();
+    }
+});
+
+function showWidget() {
+    indicator.style.display = 'none';
+    widget.classList.add('active');
+}
+
+function hideWidget() {
+    widget.classList.remove('active');
     setTimeout(() => {
         indicator.style.display = 'flex';
-    }, 300); // Ajuste este valor de acordo com a duração da transição CSS (atualmente 0.3s = 300ms).
+    }, 300);
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const squares = document.querySelectorAll('.square');
+    const displayImage = document.getElementById('display-image');
+    const displayText = document.getElementById('display-text');
+
+    squares.forEach(square => {
+        square.addEventListener('mouseover', function() {
+            const hiddenContent = this.querySelector('.hidden-content');
+            const image = hiddenContent.querySelector('img').src;
+            const text = hiddenContent.innerHTML;
+
+            displayImage.src = image;
+            displayImage.style.display = 'block';
+            displayText.innerHTML = text;
+        });
+
+        square.addEventListener('click', function() {
+            // Remove a classe 'shrink' de todos os quadrados
+            squares.forEach(s => s.classList.remove('shrink'));
+            
+            // Adiciona a classe 'shrink' aos outros quadrados (não clicados)
+            squares.forEach(s => {
+                if (s !== this) {
+                    s.classList.add('shrink');
+                }
+            });
+        });
+    });
 });
+
 
 
 
