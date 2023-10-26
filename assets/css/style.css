@@ -448,60 +448,61 @@ br {
       submit
       */
 
-  .contact_sections {
-    height: calc(100vh);
-    gap: 48px;
-    padding-top: 48px;
-  }
+.contact_sections {
+  height: calc(100vh);
+  gap: 48px;
+  padding-top: 48px;
+}
 
-  .header_contact h1{
-    font-size: 2rem;
+.header_contact h1{
+  font-size: 2rem;
 
-  }
+}
+
+.contact_full {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.contact_description{
+
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   
-  .contact_full {
-    display: flex;
-    gap: 40px;
-    flex-direction: column;
-  }
+}
 
-  .contact_description{
+.contact_form input{
+  display: block;
+  background-color: white;
+  width: 100%;
+  font-size: 1em;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  }
+.submit  {
+  display: block;
+  background-color: rgba(89, 134, 151, 0.603);
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+  border: 2px 10px black solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-style: var(--primary-font);
+  font-weight: bold;
+  color: white;
 
-  .contact_form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    
-  }
-
-  .contact_form input{
-    display: block;
-    background-color: white;
-    width: 100%;
-    font-size: 1em;
-    height: 35px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .submit  {
-    display: block;
-    background-color: rgba(89, 134, 151, 0.603);
-    width: 60%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
-    border: 2px 10px black solid;
-    border-radius: 5px;
-    cursor: pointer;
-    font-style: var(--primary-font);
-    font-weight: bold;
-    color: white;
-
-  }
+  
+}
 
 
   button[type=submit]:hover {
@@ -522,6 +523,10 @@ br {
   transition: opacity 0.3s;
 }
 
+input{
+  padding-left: 10px;
+}
+
 .scroll-to-top:hover {
   opacity: 0.8;
 }
@@ -538,6 +543,18 @@ br {
 .box {
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
+  color: var(--default-color);
+}
+
+.talk {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.talk a{
+  margin-bottom: 15px;
+  text-decoration: none;
   color: var(--default-color);
 }
 
@@ -567,8 +584,8 @@ br {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   z-index: 1000;
   background-color: #25D366;
   border-radius: 0 15px 15px 0;
