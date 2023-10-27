@@ -407,7 +407,7 @@ br {
 
 .portifolio{
   background-color: var(--first-color);
-  height: calc(100vh);
+  height: 1300px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -416,11 +416,13 @@ br {
 .head {
   height: 40%;
 }
-.container {
+.portifolio_container {
   width: 100%;
-  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .squares {
@@ -428,6 +430,7 @@ br {
   flex-wrap: wrap; /* Permite que os quadrados se ajustem em várias linhas se houver muitos */
   gap: 10px; /* Espaçamento entre os quadrados */
   justify-content: center; /* Centraliza os quadrados */
+  
 }
 
 .square {
@@ -440,6 +443,7 @@ br {
   justify-content: center;
   position: relative;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .square img {
@@ -462,23 +466,55 @@ br {
 
 .display {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 20px;
+  max-height: auto; /* Ajuste conforme necessário */
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 #display-image {
-  max-width: 100%;
-  height: auto;
+  
+  height: 50vh;
+  align-items: center;
+  
 }
 
 #display-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   text-align: center;
   margin-top: 10px;
+  align-items: center;
+  max-width: 100%; /* Garante que o texto não exceda a largura da seção */
+  overflow-wrap: break-word; /* Quebra palavras longas para evitar overflow */
+}
+
+#display-text img{
+  
+  max-height: 400px;
+  max-width: 375px;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px;
+  border-radius: 20px;
+  /* box-shadow: 2px 2px black; */
+}
+
+#display-text img:hover{
+
+  transition: transform 1s, opacity 0.5s;
 }
 
 .hidden-content {
   display: none;
+}
+
+.hidden-content img {
+ width: 100%;
+ height: 100%;
 }
 
 .shrink {

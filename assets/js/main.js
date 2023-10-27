@@ -283,31 +283,43 @@ document.addEventListener('DOMContentLoaded', function() {
     const squares = document.querySelectorAll('.square');
     const displayImage = document.getElementById('display-image');
     const displayText = document.getElementById('display-text');
+    let clickedSquare = null; // Armazena o quadrado que foi clicado
+
+    function shrinkOthers(target) {
+        squares.forEach(s => {
+            if (s !== target) {
+                s.classList.add('shrink');
+            } else {
+                s.classList.remove('shrink');
+            }
+        });
+    }
 
     squares.forEach(square => {
-        square.addEventListener('mouseover', function() {
-            const hiddenContent = this.querySelector('.hidden-content');
-            const image = hiddenContent.querySelector('img').src;
-            const text = hiddenContent.innerHTML;
-
-            displayImage.src = image;
-            displayImage.style.display = 'block';
-            displayText.innerHTML = text;
-        });
-
         square.addEventListener('click', function() {
-            // Remove a classe 'shrink' de todos os quadrados
-            squares.forEach(s => s.classList.remove('shrink'));
-            
-            // Adiciona a classe 'shrink' aos outros quadrados (não clicados)
-            squares.forEach(s => {
-                if (s !== this) {
-                    s.classList.add('shrink');
-                }
-            });
+            const hiddenContent = this.querySelector('.hidden-content');
+            const textContent = hiddenContent.innerHTML;
+
+            if (clickedSquare === this) {
+                // Se o quadrado já estava clicado, desative o clique, retorne todos ao tamanho normal e esconda tudo
+                clickedSquare = null;
+                squares.forEach(s => s.classList.remove('shrink'));
+                displayImage.style.display = 'block'; // Mantenha a imagem original visível
+                displayText.innerHTML = '';
+            } else {
+                // Se um novo quadrado foi clicado, atualize o quadrado clicado, encolha os outros e mostre o conteúdo
+                clickedSquare = this;
+                shrinkOthers(this);
+                displayImage.style.display = 'none'; // Mantenha a imagem original oculta
+                displayText.innerHTML = textContent;
+            }
         });
     });
 });
+
+
+
+
 
 
 
