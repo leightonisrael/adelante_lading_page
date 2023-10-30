@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Configurações do servidor
         $mail->isSMTP(); 
-        $mail->Host = 'smtp.titan.email';
+        $mail->Host = 'xxxxxx';
         $mail->SMTPAuth = true;
         $mail->Username = 'tech@adelanteengenheria.com.br'; 
         $mail->Password = 'xxxxxx'; 
