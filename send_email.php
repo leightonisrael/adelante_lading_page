@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.titan.email';
         $mail->SMTPAuth = true;
         $mail->Username = 'tech@adelanteengenheria.com.br'; 
-        $mail->Password = 'Massari123!'; 
+        $mail->Password = 'xxxxxx'; 
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
