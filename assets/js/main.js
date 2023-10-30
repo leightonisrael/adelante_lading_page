@@ -317,7 +317,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Previne o comportamento padrão do formulário (não recarrega a página)
 
+    let formData = new FormData(this); // Pega os dados do formulário
+
+    // AJAX
+    fetch('send_email.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())  // Transforma a resposta em texto
+    .then(data => {
+        // Aqui, 'data' é a resposta do seu script PHP. Você pode mostrar isso em um alerta, por exemplo.
+        alert(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
+    });
+});
 
 
 
